@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <title>Example1</title>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-4 form-group">
+                <label for="genderList">Gender</label>
+                <select id="genderList" class="form-control">
+                    <option value="null">All</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        
+        <ul class="list-group" id="userList">
+
+        </ul>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var users = [
+            {name: 'John', age: 28, gender: 'Male'},
+            {name: 'Ana', age: 26, gender: 'Female'},
+            {name: 'Bruce', age: 18, gender: 'Male'},
+            {name: 'Michale', age: 28, gender: 'Male'},
+            {name: 'Joe', age: 24, gender: 'Female'},
+            {name: 'Lili', age: 27, gender: 'Male'},
+            {name: 'Barsa', age: 29, gender: 'Male'},
+            {name: 'Ashe', age: 23, gender: 'Female'}
+        ];
+        
+        var userList = $('#userList');
+        var genderList = $('#genderList');
+
+        genderList.on('change', function() {
+            var selected = this.value;
+            var genderFilter = users.filter(function(user) {
+                return user.gender === selected;
+            });
+            render(userList, genderFilter);
+        })
+
+        render(userList, users);
+
+        function render(container, items) {
+            var htmlList = items.map(function(item) {
+                return '<li class="list-group-item col-3">' + item.name + '</li>';
+            });
+
+            var html = htmlList.join('');
+
+            container.html(html);
+        }
+    </script>
+</html>

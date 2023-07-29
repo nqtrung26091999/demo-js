@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="input-text">Input your text</label>
+    <input type="text" id="input-text">
+    <button type="button" id="btn-input-text">Submit</button>
+
+    <ul id="list-name"></ul>
+    <script>
+        var list = [];
+        var input = document.getElementById("input-text");
+        var btnInput = document.getElementById("btn-input-text");
+        var listName = document.getElementById("list-name");
+
+        btnInput.addEventListener("click", function() {
+            submit();
+            render(list);
+            input.value = '';
+        })
+
+        function submit() {
+            list.push(input.value);
+        }
+
+        function render(list) {
+            var content = list.map(function(item) {
+                return '<li>' + item + '</li>';
+            })
+            listName.innerHTML = content.join('');
+        }
+        render(list);
+    </script>
+</body>
+</html>

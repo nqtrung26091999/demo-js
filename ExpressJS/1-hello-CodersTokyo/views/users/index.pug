@@ -1,0 +1,28 @@
+extends ../layouts/common.pug
+block content
+    h1 
+        span.me-3 Users
+        a.btn.btn-primary(href="/users/create") New Users
+    .d-flex.align-items-center
+        form.ms-auto(action="/users/search", method="GET")
+            div(class="row")
+                div(class="col")
+                    input(type="text", name="q", class="form-control")
+                div(class="col")
+                    button(type="submit", class="btn btn-primary") Search
+    table.table
+        thead
+            tr
+                th Name
+                th Phone
+                th Action
+        tbody
+        each list in users
+            tr
+                td= list.name
+                td= list.phone
+                td
+                    a(href="/users/id=" + list.id)
+                        button.btn.btn-secondary.btn-sm View
+
+

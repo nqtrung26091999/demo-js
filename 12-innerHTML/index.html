@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TODO LIST</title>
+    </head>
+    <body>
+        <div>
+            <label for="input">Enter your content: </label>
+            <input type="text" id="input-text"><button id="btn-click" type="button">ADD CONTENT</button>
+            <ul id="todo-list">
+
+            </ul>
+        </div>
+        <script type="text/javascript">
+        var list = [];
+        var textInput = document.getElementById('input-text');
+        var i = 0;
+
+        var addBtn = document.getElementById('btn-click');
+
+        addBtn.addEventListener('click', addItem);
+        addBtn.addEventListener('click', function() {
+            alert('Your has been clicked');
+        });
+
+        function addItem() {
+            if (textInput.value !== '') {
+                list.push(textInput.value);
+                render();
+                textInput.value = '';
+            } else {
+                alert('Please enter a text input');
+            }
+        }
+        
+        
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var content = list.map(function(item, index) {
+                var content = '<li>' + item + ' <button onclick="deleteItem('+index+')" type="button">delete</button></li>';
+                return content;
+            });
+            console.log(content);
+            htmlList.innerHTML = content.join('');
+        }
+
+        function deleteItem(i) {
+            list.splice(i, 1);
+            render();
+        }
+        
+    </script>
+    </body>
+</html>
