@@ -36,7 +36,9 @@ module.exports = {
             return;
         }
         // console.log(user);
-        res.cookie('userid', user.id);
+        res.cookie('userid', user.id, {
+            signed: true
+        });
         res.redirect('/users');
     }
 }

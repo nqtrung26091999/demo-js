@@ -26,5 +26,7 @@ html
                                     a(class="dropdown-item", href="#") Another
                                 li
                                     a(class="dropdown-item", href="#") A third link
+            if user                        
+                p.text-light.me-4= user.name
     .container.pt-5
         block content
