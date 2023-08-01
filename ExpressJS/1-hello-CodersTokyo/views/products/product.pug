@@ -1,0 +1,25 @@
+extends ../layouts/common
+
+block content
+
+    h2.mb-5 Products
+    .d-flex.flex-wrap.justify-content-center
+        each item in products
+            .card.me-2.mb-2(style='width:300px')
+                img.card-img-top(src= item.image, alt='Card image', style='width:100%')
+                .card-body
+                    h6.card-title= item.name
+                    p.card-text= item.description
+                    a.btn.btn-primary(href='#') See Profile
+    .container.d-flex.justify-content-center
+        ul.pagination
+            li.page-item
+                a.page-link(href='#') Previous
+            li.page-item
+                a.page-link(href='#') 1
+            li.page-item.active
+                a.page-link(href='#') 2
+            li.page-item
+                a.page-link(href='#') 3
+            li.page-item
+                a.page-link(href='#') Next
