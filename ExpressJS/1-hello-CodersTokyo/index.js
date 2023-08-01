@@ -4,6 +4,10 @@ var cookieParser = require('cookie-parser');
 
 var app = express();
 var userRouter = require('./routes/user.route');
+var authRouter = require('./routes/auth.route');
+
+var authMiddleware = require('./middlewares/auth.middleware')
+
 var port = 3000;
 
 app.use(bodyParser.json()) // for parsing application/json
@@ -21,7 +25,8 @@ app.get('/', function(req, res) {
     });
 });
 
-app.use('/users', userRouter);
+app.use('/users', authMiddleware.requiredAuth, userRouter);
+app.use('/auth', authRouter);
 
 app.listen(port, function() {
     console.log('listening on port 3000 ' + port);
