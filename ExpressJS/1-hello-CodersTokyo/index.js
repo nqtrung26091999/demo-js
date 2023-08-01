@@ -29,5 +29,5 @@ app.use('/users', authMiddleware.requiredAuth, userRouter);
 app.use('/auth', authRouter);
 
 app.listen(port, function() {
-    console.log('listening on port 3000 ' + port);
+    console.log('listening on port ' + port);
 });
