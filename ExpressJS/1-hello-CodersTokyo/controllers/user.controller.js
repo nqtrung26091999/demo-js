@@ -21,6 +21,7 @@ module.exports = {
     },
 
     create : function(req, res) {
+        console.log(req.cookies);
         res.render('users/create');
     },
 
@@ -28,7 +29,7 @@ module.exports = {
         db.get('users').push(req.body).write();
         res.redirect('/users');
     },
-    
+
     get : function(req, res) {
         var id = req.params.id;
         var user = db.get('users')

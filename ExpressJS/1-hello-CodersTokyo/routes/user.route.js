@@ -12,6 +12,11 @@ router.get('/id=:id', controller.get);
 
 router.get('/create', controller.create);
 
-router.post('/create', validate.postCreate, controller.postCreate);
+router.post('/create', validate.postCreate, controller.postCreate); 
+
+router.get('/cookie', function(req, res, next) {
+    res.cookie('user_id', 1234);
+    res.send('hello');
+});
 
 module.exports = router;
