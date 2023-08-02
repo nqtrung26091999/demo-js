@@ -4,8 +4,7 @@
       "name": "trung",
       "id": "NG07aM0xi",
       "phone": "0123444232",
-      "email": "trung@gmail.com",
-      "password": "81dc9bdb52d04dc20036dbd8313ed055"
+      "email": "trung@gmail.com"
     },
     {
       "name": "hoa",
@@ -16,6 +15,24 @@
       "name": "sang",
       "id": "QVfuoR2k5",
       "phone": "0123444232"
+    },
+    {
+      "name": "Lumine",
+      "phone": "0912932123",
+      "avatar": "uploads\\06053473f50e727faa7be841bea5a4f3"
+    },
+    {
+      "name": "Trung",
+      "phone": "081232132",
+      "email": "trung@gmail.com",
+      "avatar": "uploads\\eb5ff52a2362502a7d9a5566a33d8f58",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055"
+    },
+    {
+      "name": "ashe",
+      "phone": "123",
+      "avatar": "uploads\\bcdbba38dbb498d1b25a292faab998e1",
+      "id": "u-HCl_2Ta"
     }
   ],
   "products": [

@@ -13,12 +13,15 @@ block content
     table.table
         thead
             tr
+                th Avatar
                 th Name
                 th Phone
                 th Action
         tbody
         each list in users
-            tr
+            tr  
+                td
+                    img(src=list.avatar, width='64')
                 td= list.name
                 td= list.phone
                 td

@@ -26,6 +26,9 @@ module.exports = {
     },
 
     postCreate : function(req, res) {
+        var filePath = req.file.path;
+        req.body.avatar = filePath.split('\\').slice(1).join('\\');
+        req.body.id = shortid.generate();
         db.get('users').push(req.body).write();
         res.redirect('/users');
     },
