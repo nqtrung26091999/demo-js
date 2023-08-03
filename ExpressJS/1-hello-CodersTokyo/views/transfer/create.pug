@@ -1,0 +1,16 @@
+extends ../layouts/common.pug
+block content
+    h1 Create transfer 
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+    form(method="POST", action="/transfer/create", style='width:500px')
+        input(type="hidden", name="_csrf", value=csrfToken)
+        .form-group
+            label(for="account") Account
+            input#account.form-control(type="text", name="account")
+        .form-group
+            label(for="amount") Amount
+            input#amount.form-control(type="text", name="amount")
+
+        button.btn.btn-primary.mt-3 Transfer
