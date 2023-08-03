@@ -4,7 +4,9 @@
       "name": "trung",
       "id": "NG07aM0xi",
       "phone": "0123444232",
-      "email": "trung@gmail.com"
+      "email": "trung@gmail.com",
+      "avatar": "uploads\\eb5ff52a2362502a7d9a5566a33d8f58",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055"
     },
     {
       "name": "hoa",
@@ -20,13 +22,6 @@
       "name": "Lumine",
       "phone": "0912932123",
       "avatar": "uploads\\06053473f50e727faa7be841bea5a4f3"
-    },
-    {
-      "name": "Trung",
-      "phone": "081232132",
-      "email": "trung@gmail.com",
-      "avatar": "uploads\\eb5ff52a2362502a7d9a5566a33d8f58",
-      "password": "81dc9bdb52d04dc20036dbd8313ed055"
     },
     {
       "name": "ashe",
@@ -735,6 +730,16 @@
       "image": "https://loremflickr.com/320/240",
       "email": "bnesey2r@example.com",
       "description": "ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "-KRNaEq9Q",
+      "cart": {
+        "17600551-c89b-4077-bdd1-72faf0c146c3": 2,
+        "6b409d0f-5a3f-4499-a743-c5d2b99d9e44": 2,
+        "91b0a2dd-d010-4fb4-9ea2-44b12cd9cc46": 4
+      }
     }
   ]
 }
