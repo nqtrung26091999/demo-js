@@ -5,6 +5,16 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var multer  = require('multer');
 var csurf = require('csurf');
+var mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URL);
+
+// // Or:
+// try {
+//   await mongoose.connect('mongodb://127.0.0.1:27017/test');
+// } catch (error) {
+//   handleError(error);
+// }
 
 var upload = multer({ dest: 'public/uploads/' });
 var app = express();
@@ -24,7 +34,7 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET)); // for parsing
 app.use(sessionMiddleware);
-app.use(csurf({ cookie:true }));
+// app.use(csurf({ cookie:true }));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
