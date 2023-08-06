@@ -34,7 +34,6 @@ app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET)); // for parsing
 app.use(sessionMiddleware);
-// app.use(csurf({ cookie:true }));
 
 app.set('view engine', 'pug');
 app.set('views', './views');
@@ -52,6 +51,7 @@ app.use('/auth', authRouter);
 app.use('/products', productRouter);
 app.use('/cart', cartRouter);
 app.use('/transfer', authMiddleware.requiredAuth, transferRouter);
+app.use(csurf({ cookie:true }));
 
 app.listen(port, function() {
     console.log('listening on port ' + port);

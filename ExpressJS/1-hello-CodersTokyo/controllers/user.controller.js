@@ -1,22 +1,22 @@
 var db = require('../db');
 var shortid = require('shortid');
+var User = require('../models/user.model');
 
 module.exports = {
     index : function(req, res) {
-        res.render('users/index', {
-            users: db.get('users').value()
-        });
+        User.find({}).then(function(users) {
+            res.render('users/index', {
+                users: users
+            });
+        })
     },
 
     search : function(req, res) {
         var q = req.query.q;
-        var matchedUsers = db.get('users').value().filter(function(user){
-            return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-        });
-    
-        res.render('users/index', {
-            users:matchedUsers,
-            q:q
+        User.find({ name: q }).then(function(users) {
+            res.render('users/index', {
+                users: users
+            })
         });
     },
 

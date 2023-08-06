@@ -2,8 +2,9 @@ var db = require('../db');
 var shortid = require('shortid');
 
 module.exports.create = function(req, res, next) {
+	var token = req.csrfToken();
 	res.render('transfer/create', {
-		csrfToken: req.csrfToken()
+		csrfToken: token
 	});
 }
 
