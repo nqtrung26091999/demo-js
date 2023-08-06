@@ -9,20 +9,15 @@ var mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGO_URL);
 
-// // Or:
-// try {
-//   await mongoose.connect('mongodb://127.0.0.1:27017/test');
-// } catch (error) {
-//   handleError(error);
-// }
-
+// Routers
 var upload = multer({ dest: 'public/uploads/' });
 var app = express();
 var userRouter = require('./routes/user.route');
 var authRouter = require('./routes/auth.route');
 var productRouter = require('./routes/product.route');
 var cartRouter = require('./routes/cart.router');
-var transferRouter = require('./routes/transfer.router')
+var transferRouter = require('./routes/transfer.router');
+var apiProductRoute = require('./api/routes/product.router')
 
 var authMiddleware = require('./middlewares/auth.middleware');
 var sessionMiddleware = require('./middlewares/session.middleware');
@@ -51,7 +46,9 @@ app.use('/auth', authRouter);
 app.use('/products', productRouter);
 app.use('/cart', cartRouter);
 app.use('/transfer', authMiddleware.requiredAuth, transferRouter);
-app.use(csurf({ cookie:true }));
+app.use('/api/products', apiProductRoute);
+
+// app.use(csurf({ cookie:true }));
 
 app.listen(port, function() {
     console.log('listening on port ' + port);
