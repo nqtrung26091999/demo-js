@@ -1,7 +1,7 @@
 var mouse = {
     name: 'mickey',
     sayHi: function() {
-        console.log(this.name);
+        console.log('Hi my name is ' + this.name);
     }
 }
 
@@ -9,5 +9,9 @@ var cat = {
     name: 'tom'
 }
 
-var say = mouse.sayHi.bind(cat);
+var dog = {
+    name: 'pluto'
+}
+
+var say = mouse.sayHi.bind(dog);
 say();
